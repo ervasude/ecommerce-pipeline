@@ -163,6 +163,9 @@ class Catalog:
             return False
         l.stock -= qty
         return True
+    
+    def release(self, listing_id: str, qty: int) -> None:
+        self.listings[listing_id].stock += qty
 
     def restock(self, now: datetime, threshold: int = 5) -> list[Envelope]:
         msgs = []
